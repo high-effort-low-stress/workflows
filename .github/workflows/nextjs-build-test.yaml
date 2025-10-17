@@ -45,7 +45,10 @@ jobs:
         cache: 'pnpm'
 
     - name: Install dependencies
-      run: pnpm i --frozen-lockfile; 
+      run: |
+        export PNPM_HOME="/pnpm";
+        export PATH="$PNPM_HOME:$PATH";
+        corepack enable pnpm && pnpm i --frozen-lockfile; 
       
     - name: Build
       run: pnpm run build;
