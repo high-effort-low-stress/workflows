@@ -68,7 +68,10 @@ jobs:
       with:
         name: ${{steps.set-artifact-name.outputs.name}}
         retention-days: 1
-        path: ./app
+        path: |
+          public
+          .next/standalone
+          .next/static
 
     ### TEST
 
